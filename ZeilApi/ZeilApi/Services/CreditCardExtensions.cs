@@ -9,18 +9,21 @@ public static class CreditCardExtensions
 	public static bool VerifyCheckDigit(this string cardNumber)
 	{
 		var payload = new int[cardNumber.Length - 1];
+
 		// convert to numbers
 		for (int i = 0; i < cardNumber.Length - 1; i++)
 		{
 			payload[i] = cardNumber[i] - '0';
 		}
+
 		// apply multiplier
 		for (int i = 0; i < cardNumber.Length - 1; i++)
 		{
 			var multiplier = 2 - i % 2;
 			payload[^(i + 1)] *= multiplier;
 		}
-		// sum individuals
+		
+		// individual digit sums
 		for (int i = 0; i < cardNumber.Length - 1; i++)
 		{
 			var value = payload[i];
@@ -32,7 +35,8 @@ public static class CreditCardExtensions
 			}
 			payload[i] = sum;
 		}
-		// sum digits
+		
+		// sum all digits
 		var total = payload.Sum();
 		var expectedCheckDigit = 10 - total % 10;
 
