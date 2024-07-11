@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ZeilApi.Infrastructure;
+using ZeilApi.Services;
 
 namespace ZeilApi.CreditCardCheck;
 
@@ -11,6 +12,17 @@ public class CreditCardCheckController : ControllerBase
     [HttpPost(Name = "CheckCreditCardNumber")]
     public CreditCardCheckResponse Post(CreditCardCheckRequest request)
     {
-        return new CreditCardCheckResponse { IsValid = true };
+	    var checkDigitIsValid = request.CardNumber.VerifyCheckDigit();
+
+        return new CreditCardCheckResponse
+        {
+	        IsValid = checkDigitIsValid,
+			Error = checkDigitIsValid ? null : ErrorMessages.InvalidCheckDigit
+        };
     }
+}
+
+public static class ErrorMessages
+{
+	public const string InvalidCheckDigit = "The check digit does not match expected value";
 }

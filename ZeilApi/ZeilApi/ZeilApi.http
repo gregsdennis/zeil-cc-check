@@ -3,27 +3,35 @@
 POST {{ZeilApi_HostAddress}}/credit-card-check/
 Content-Type: application/json
 Accept: application/json
-{"cardNumber": "1243567890123456"}
+{"cardNumber": "1234567890123456"}
 
 ###
 
 POST {{ZeilApi_HostAddress}}/credit-card-check/
 Content-Type: application/json
 Accept: application/json
-{"cardNumber": "124356789012345"}
+{"cardNumber": "124356789"}
 
 ###
 
 POST {{ZeilApi_HostAddress}}/credit-card-check/
 Content-Type: application/json
 Accept: application/json
-{"cardNumber": "12435678901234567"}
+{"cardNumber": "124356789012345678901"}
 
 ###
 
 POST {{ZeilApi_HostAddress}}/credit-card-check/
 Content-Type: application/json
 Accept: application/json
-{"cardNumber": "124356abcd1234567"}
+{"cardNumber": "124356abcd123456"}
 
 ###
+
+POST  {{ZeilApi_HostAddress}}/credit-card-check/
+Content-Type: application/json
+Accept: application/json
+{"cardNumber": "1234567890123452"}
+
+###
+
