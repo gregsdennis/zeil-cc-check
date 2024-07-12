@@ -1,3 +1,6 @@
+[![Build & Test](https://github.com/gregsdennis/zeil-cc-check/actions/workflows/dotnet-core.yml/badge.svg?branch=main&event=push)](https://github.com/gregsdennis/zeil-cc-check/actions/workflows/dotnet-core.yml)
+[![License](https://img.shields.io/github/license/gregsdennis/zeil-cc-check)](https://github.com/gregsdennis/zeil-cc-check/blob/main/LICENSE)
+
 # ziel-cc-check
 
 _Public for a limited time only!_
