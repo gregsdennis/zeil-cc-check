@@ -5,11 +5,11 @@ using ZeilApi.Services;
 namespace ZeilApi.CreditCardCheck;
 
 [ApiController]
-[Route("credit-card-check")]
+[Route("card-number-check")]
 public class CreditCardCheckController : ControllerBase
 {
     [ValidateModel]
-    [HttpPost(Name = "CheckCreditCardNumber")]
+    [HttpPost(Name = "CardNumberCheck")]
     public CreditCardCheckResponse Post(CreditCardCheckRequest request)
     {
 	    var checkDigitIsValid = request.CardNumber.VerifyCheckDigit();

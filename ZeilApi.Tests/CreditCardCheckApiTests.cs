@@ -25,7 +25,7 @@ public class CreditCardCheckApiTests
 			""", Encoding.UTF8, "application/json");
 
 		// Act
-		var response = await client.PostAsync("/credit-card-check", content);
+		var response = await client.PostAsync("/card-number-check", content);
 
 		// Assert
 		response.EnsureSuccessStatusCode();
@@ -47,7 +47,7 @@ public class CreditCardCheckApiTests
           """, Encoding.UTF8, "application/json");
 
 		// Act
-		var response = await client.PostAsync("/credit-card-check", content);
+		var response = await client.PostAsync("/card-number-check", content);
 
 		// Assert
 		response.EnsureSuccessStatusCode();
@@ -73,7 +73,7 @@ public class CreditCardCheckApiTests
           """, Encoding.UTF8, "application/json");
 
 		// Act
-		var response = await client.PostAsync("/credit-card-check", content);
+		var response = await client.PostAsync("/card-number-check", content);
 
 		// Assert
 		Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
