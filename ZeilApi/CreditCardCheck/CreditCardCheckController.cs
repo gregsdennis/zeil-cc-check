@@ -1,6 +1,6 @@
+using LuhnNet;
 using Microsoft.AspNetCore.Mvc;
 using ZeilApi.Infrastructure;
-using ZeilApi.Services;
 
 namespace ZeilApi.CreditCardCheck;
 
@@ -12,7 +12,7 @@ public class CreditCardCheckController : ControllerBase
     [HttpPost(Name = "CardNumberCheck")]
     public CreditCardCheckResponse Post(CreditCardCheckRequest request)
     {
-	    var checkDigitIsValid = request.CardNumber.VerifyCheckDigit();
+	    var checkDigitIsValid = Luhn.IsValid(request.CardNumber);
 
         return new CreditCardCheckResponse
         {
