@@ -1,5 +1,6 @@
 using Serilog;
 using Serilog.Enrichers.Sensitive;
+using System.Text.Json;
 
 Log.Logger = new LoggerConfiguration()
 	.Enrich.WithSensitiveDataMasking(_ => { })
@@ -11,7 +12,11 @@ try
 	var builder = WebApplication.CreateBuilder(args);
 
 	builder.Services.AddSerilog();
-	builder.Services.AddControllers();
+	builder.Services.AddControllers()
+		.AddJsonOptions(options =>
+		{
+			options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+		}); ;
 	builder.Services.AddEndpointsApiExplorer();
 	builder.Services.AddSwaggerGen();
 
