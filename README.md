@@ -14,7 +14,7 @@ The project is a .Net 8 ASP.Net Web API.  To build it, you'll need to install th
 
 It can be built and run in your favorite .Net IDE, such as Visual Studio, Visual Studio Code (with C# extensions), or Jetbrains Rider.
 
-If you prefer to use the command like, use
+If you prefer to use the command line, use
 
 ```
 dotnet run
